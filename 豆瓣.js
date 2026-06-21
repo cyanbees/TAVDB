@@ -271,12 +271,20 @@ async function listComingSoon(params) {
     console.log("[豆瓣] 即将上映: 第" + page + "页, 共" + pageItems.length + "条");
 
     return pageItems.map(function (item) {
+      if (item.tmdbId) {
+        return {
+          id: item.tmdbId,
+          type: "tmdb",
+          mediaType: "movie",
+          title: item.title || "",
+        };
+      }
       return {
         id: item.doubanId,
         type: "url",
         mediaType: "movie",
         title: item.title || "",
-        coverUrl: item.posterPath || (item.tmdbPoster ? "https://image.tmdb.org/t/p/w500" + item.tmdbPoster : undefined),
+        coverUrl: item.posterPath || undefined,
       };
     });
 
