@@ -1,0 +1,679 @@
+{
+  "doulistId": "159035683",
+  "title": "审美与创意兼顾的恐怖片(96部)",
+  "count": 96,
+  "items": [
+    {
+      "doubanId": 36882223,
+      "title": "噬魂岛",
+      "posterPath": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2911713861.jpg",
+      "rating": 0,
+      "year": 2024
+    },
+    {
+      "doubanId": 34850561,
+      "title": "咒",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2871258860.jpg",
+      "rating": 6.9,
+      "year": 2022
+    },
+    {
+      "doubanId": 36423644,
+      "title": "回魂之夜",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2893740168.jpg",
+      "rating": 6.5,
+      "year": 2023
+    },
+    {
+      "doubanId": 34960130,
+      "title": "深宅 The Deep House",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2583403599.jpg",
+      "rating": 6,
+      "year": 2021
+    },
+    {
+      "doubanId": 34912837,
+      "title": "女鬼桥 女鬼橋",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2588341885.jpg",
+      "rating": 6.3,
+      "year": 2020
+    },
+    {
+      "doubanId": 27005769,
+      "title": "禁闭男童 Eli",
+      "posterPath": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2568659361.jpg",
+      "rating": 6.4,
+      "year": 2019
+    },
+    {
+      "doubanId": 35639406,
+      "title": "死亡直播 Deadstream",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2879779700.jpg",
+      "rating": 6.7,
+      "year": 2022
+    },
+    {
+      "doubanId": 35164406,
+      "title": "降灵日历 Le Calendrier",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2616007316.jpg",
+      "rating": 6.6,
+      "year": 2021
+    },
+    {
+      "doubanId": 26373527,
+      "title": "好友请求 Friend Request",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2277065823.jpg",
+      "rating": 6.1,
+      "year": 2016
+    },
+    {
+      "doubanId": 26602794,
+      "title": "死亡占卜2：恶灵始源 Ouija: Origin of Evil",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2391942994.jpg",
+      "rating": 6.5,
+      "year": 2016
+    },
+    {
+      "doubanId": 34902394,
+      "title": "潜伏5：红门 Insidious: The Red Door",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2890895109.jpg",
+      "rating": 5.4,
+      "year": 2023
+    },
+    {
+      "doubanId": 34955229,
+      "title": "蛛网男孩 Cobweb",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2893307133.jpg",
+      "rating": 5.6,
+      "year": 2023
+    },
+    {
+      "doubanId": 36133787,
+      "title": "孤立无援 No One Will Save You",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2897740776.jpg",
+      "rating": 6,
+      "year": 2023
+    },
+    {
+      "doubanId": 33406478,
+      "title": "修女2 The Nun II",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2895269946.jpg",
+      "rating": 5.9,
+      "year": 2023
+    },
+    {
+      "doubanId": 35151492,
+      "title": "断网假期 Leave the World Behind",
+      "posterPath": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2899786881.jpg",
+      "rating": 6,
+      "year": 2023
+    },
+    {
+      "doubanId": 30258623,
+      "title": "柜魔 The Boogeyman",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2892092275.jpg",
+      "rating": 5.6,
+      "year": 2023
+    },
+    {
+      "doubanId": 35410042,
+      "title": "鬼玩人崛起 Evil Dead Rise",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2885989906.jpg",
+      "rating": 6.6,
+      "year": 2023
+    },
+    {
+      "doubanId": 35779959,
+      "title": "危笑 Smile",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2880646049.jpg",
+      "rating": 6.4,
+      "year": 2022
+    },
+    {
+      "doubanId": 36065691,
+      "title": "回应我 Talk to Me",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2890602555.jpg",
+      "rating": 6.3,
+      "year": 2022
+    },
+    {
+      "doubanId": 36216837,
+      "title": "暗泳 Night Swim",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2898981139.jpg",
+      "rating": 5.1,
+      "year": 2024
+    },
+    {
+      "doubanId": 36086210,
+      "title": "照明商店",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2901397955.jpg",
+      "rating": 6.2,
+      "year": 2023
+    },
+    {
+      "doubanId": 35490167,
+      "title": "破墓 파묘",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2905896429.jpg",
+      "rating": 6.7,
+      "year": 2024
+    },
+    {
+      "doubanId": 36249707,
+      "title": "屋中异蛛 Sting",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2904581439.jpg",
+      "rating": 5.6,
+      "year": 2024
+    },
+    {
+      "doubanId": 36409311,
+      "title": "假想友 Imaginary",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2903402342.jpg",
+      "rating": 5.5,
+      "year": 2024
+    },
+    {
+      "doubanId": 35027791,
+      "title": "布袋头 Baghead",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2901655709.jpg",
+      "rating": 5.8,
+      "year": 2023
+    },
+    {
+      "doubanId": 36246315,
+      "title": "神秘窥视 The Watchers",
+      "posterPath": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2905033491.jpg",
+      "rating": 5.8,
+      "year": 2024
+    },
+    {
+      "doubanId": 30277290,
+      "title": "梅根 M3GAN",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2889245580.jpg",
+      "rating": 6,
+      "year": 2022
+    },
+    {
+      "doubanId": 35017064,
+      "title": "老去 Old",
+      "posterPath": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2868189951.jpg",
+      "rating": 6.4,
+      "year": 2021
+    },
+    {
+      "doubanId": 27605563,
+      "title": "鹿角 Antlers",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2587966857.jpg",
+      "rating": 5.4,
+      "year": 2021
+    },
+    {
+      "doubanId": 30323687,
+      "title": "夜间小屋 The Night House",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2637498114.jpg",
+      "rating": 6.3,
+      "year": 2020
+    },
+    {
+      "doubanId": 30389627,
+      "title": "糖果人 Candyman",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2662756946.jpg",
+      "rating": 5.4,
+      "year": 2021
+    },
+    {
+      "doubanId": 25909236,
+      "title": "致命感应 Malignant",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2672792129.jpg",
+      "rating": 6.7,
+      "year": 2021
+    },
+    {
+      "doubanId": 30359340,
+      "title": "南巫",
+      "posterPath": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2635906761.jpg",
+      "rating": 6.5,
+      "year": 2020
+    },
+    {
+      "doubanId": 30366084,
+      "title": "断裂 Fractured",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2568649517.jpg",
+      "rating": 6.9,
+      "year": 2019
+    },
+    {
+      "doubanId": 34909109,
+      "title": "蜿蜒 Meandre",
+      "posterPath": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2576206081.jpg",
+      "rating": 5.5,
+      "year": 2020
+    },
+    {
+      "doubanId": 35363988,
+      "title": "盖亚 Gaia",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2654849860.jpg",
+      "rating": 5.8,
+      "year": 2021
+    },
+    {
+      "doubanId": 25870483,
+      "title": "它在身后 It Follows",
+      "posterPath": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2232895531.jpg",
+      "rating": 6.4,
+      "year": 2014
+    },
+    {
+      "doubanId": 27621727,
+      "title": "遗传厄运 Hereditary",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2518865763.jpg",
+      "rating": 7.4,
+      "year": 2018
+    },
+    {
+      "doubanId": 26684564,
+      "title": "关灯后 Lights Out",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2327225597.jpg",
+      "rating": 6.8,
+      "year": 2016
+    },
+    {
+      "doubanId": 27188152,
+      "title": "诡怪疑云 Aterrados",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2532529059.jpg",
+      "rating": 6.7,
+      "year": 2017
+    },
+    {
+      "doubanId": 1793903,
+      "title": "幻影凶间 1408",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p887024730.jpg",
+      "rating": 7.6,
+      "year": 2007
+    },
+    {
+      "doubanId": 3804629,
+      "title": "招魂 The Conjuring",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p1936517673.jpg",
+      "rating": 8.1,
+      "year": 2013
+    },
+    {
+      "doubanId": 26419635,
+      "title": "高草丛中 In the Tall Grass",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2568737620.jpg",
+      "rating": 6.5,
+      "year": 2019
+    },
+    {
+      "doubanId": 30307197,
+      "title": "星之彩 Color Out of Space",
+      "posterPath": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2582953131.jpg",
+      "rating": 6.5,
+      "year": 2019
+    },
+    {
+      "doubanId": 27078344,
+      "title": "黑森灵 The Ritual",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2512008984.jpg",
+      "rating": 6.3,
+      "year": 2017
+    },
+    {
+      "doubanId": 1945330,
+      "title": "迷雾 The Mist",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2363134750.jpg",
+      "rating": 8.1,
+      "year": 2007
+    },
+    {
+      "doubanId": 26384741,
+      "title": "湮灭 Annihilation",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2516914607.jpg",
+      "rating": 7.2,
+      "year": 2018
+    },
+    {
+      "doubanId": 25936147,
+      "title": "意外空间 El Incidente",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2192863764.jpg",
+      "rating": 7.6,
+      "year": 2014
+    },
+    {
+      "doubanId": 25807345,
+      "title": "彗星来的那一夜 Coherence",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2187896734.jpg",
+      "rating": 8.6,
+      "year": 2013
+    },
+    {
+      "doubanId": 27092648,
+      "title": "蒙上你的眼 Bird Box",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2537908150.jpg",
+      "rating": 7.2,
+      "year": 2018
+    },
+    {
+      "doubanId": 36801197,
+      "title": "FPS",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2905381646.jpg",
+      "rating": 5.1,
+      "year": 2024
+    },
+    {
+      "doubanId": 27016554,
+      "title": "鬼入侵 The Haunting of Hill House",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2534588882.jpg",
+      "rating": 8.6,
+      "year": 2018
+    },
+    {
+      "doubanId": 26363201,
+      "title": "救命解药 A Cure for Wellness",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2460790542.jpg",
+      "rating": 7.1,
+      "year": 2016
+    },
+    {
+      "doubanId": 36149380,
+      "title": "长腿 Longlegs",
+      "posterPath": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2908275411.jpg",
+      "rating": 5.5,
+      "year": 2024
+    },
+    {
+      "doubanId": 36738902,
+      "title": "咒物寻凶 Oddity",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2909022117.jpg",
+      "rating": 6.3,
+      "year": 2024
+    },
+    {
+      "doubanId": 35381711,
+      "title": "博很恐惧 Beau is Afraid",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2886073087.jpg",
+      "rating": 7.2,
+      "year": 2023
+    },
+    {
+      "doubanId": 36065849,
+      "title": "腐坏之巫 House of Spoils",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2912872996.jpg",
+      "rating": 5.8,
+      "year": 2024
+    },
+    {
+      "doubanId": 35882838,
+      "title": "某种物质 The Substance",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2912441039.jpg",
+      "rating": 7.5,
+      "year": 2024
+    },
+    {
+      "doubanId": 35618576,
+      "title": "凯多湖的消失 Caddo Lake",
+      "posterPath": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2917071361.jpg",
+      "rating": 7.3,
+      "year": 2024
+    },
+    {
+      "doubanId": 36329970,
+      "title": "老爹的脑袋 Daddy's Head",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2912873312.jpg",
+      "rating": 4.9,
+      "year": 2024
+    },
+    {
+      "doubanId": 4017154,
+      "title": "外壳 Husk",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p824903140.jpg",
+      "rating": 5.8,
+      "year": 2011
+    },
+    {
+      "doubanId": 36727829,
+      "title": "危笑2 Smile 2",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2912557505.jpg",
+      "rating": 7.1,
+      "year": 2024
+    },
+    {
+      "doubanId": 36473201,
+      "title": "钟声 チャイム",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2904840634.jpg",
+      "rating": 6.5,
+      "year": 2024
+    },
+    {
+      "doubanId": 36733250,
+      "title": "长春花园 늘봄가든",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2911501759.jpg",
+      "rating": 4.5,
+      "year": 2024
+    },
+    {
+      "doubanId": 3143676,
+      "title": "林中小屋 The Cabin in the Woods",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p1323381020.jpg",
+      "rating": 7.6,
+      "year": 2011
+    },
+    {
+      "doubanId": 26662798,
+      "title": "京城81号2 京城81号Ⅱ",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2471580153.jpg",
+      "rating": 3.7,
+      "year": 2017
+    },
+    {
+      "doubanId": 25817534,
+      "title": "哭声 곡성",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2339592703.jpg",
+      "rating": 7.3,
+      "year": 2016
+    },
+    {
+      "doubanId": 36439490,
+      "title": "异教徒 Heretic",
+      "posterPath": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2913298291.jpg",
+      "rating": 7,
+      "year": 2024
+    },
+    {
+      "doubanId": 36737061,
+      "title": "直到黎明 Until Dawn",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2918395852.jpg",
+      "rating": 6.1,
+      "year": 2025
+    },
+    {
+      "doubanId": 36876356,
+      "title": "复活她 Bring Her Back",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2921267093.jpg",
+      "rating": 6.7,
+      "year": 2025
+    },
+    {
+      "doubanId": 37017948,
+      "title": "葬送 The Surrender",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2921831672.jpg",
+      "rating": 5.2,
+      "year": 2025
+    },
+    {
+      "doubanId": 36139721,
+      "title": "伊甸 Eden",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2924041782.jpg",
+      "rating": 6.8,
+      "year": 2024
+    },
+    {
+      "doubanId": 36303600,
+      "title": "回声谷 Echo Valley",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2921296362.jpg",
+      "rating": 6.3,
+      "year": 2025
+    },
+    {
+      "doubanId": 36772728,
+      "title": "同甘共苦 Together",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2925052115.jpg",
+      "rating": 6.8,
+      "year": 2025
+    },
+    {
+      "doubanId": 37178027,
+      "title": "8号出口 8番出口",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2927027583.jpg",
+      "rating": 6.3,
+      "year": 2025
+    },
+    {
+      "doubanId": 36068379,
+      "title": "魔鬼深夜秀 Late Night with the Devil",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2910320280.jpg",
+      "rating": 7.3,
+      "year": 2023
+    },
+    {
+      "doubanId": 36782603,
+      "title": "诡异列车 괴기열차",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2922416648.jpg",
+      "rating": 6.1,
+      "year": 2024
+    },
+    {
+      "doubanId": 37284417,
+      "title": "生者陵墓 สุสานคนเป็น",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2919599378.jpg",
+      "rating": 4.9,
+      "year": 2025
+    },
+    {
+      "doubanId": 36742579,
+      "title": "罪人 Sinners",
+      "posterPath": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2920268831.jpg",
+      "rating": 7.7,
+      "year": 2025
+    },
+    {
+      "doubanId": 36221247,
+      "title": "凶器 Weapons",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2921019240.jpg",
+      "rating": 6.8,
+      "year": 2025
+    },
+    {
+      "doubanId": 36617767,
+      "title": "噪声 노이즈",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2924307167.jpg",
+      "rating": 5.6,
+      "year": 2024
+    },
+    {
+      "doubanId": 36131988,
+      "title": "招魂4：终章 The Conjuring: Last Rites",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2924836546.jpg",
+      "rating": 6.2,
+      "year": 2025
+    },
+    {
+      "doubanId": 37045407,
+      "title": "怪奇收割 Strange Harvest",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2925307214.jpg",
+      "rating": 7.2,
+      "year": 2024
+    },
+    {
+      "doubanId": 36471252,
+      "title": "丑陋的继姐 Den stygge stesøsteren",
+      "posterPath": "https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2919977751.jpg",
+      "rating": 7.4,
+      "year": 2025
+    },
+    {
+      "doubanId": 37134889,
+      "title": "人偶之家 ドールハウス",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2922832626.jpg",
+      "rating": 7.6,
+      "year": 2025
+    },
+    {
+      "doubanId": 35879129,
+      "title": "另一半 Significant Other",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2879874702.jpg",
+      "rating": 5.8,
+      "year": 2022
+    },
+    {
+      "doubanId": 37226705,
+      "title": "好狗狗 Good Boy",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2924425319.jpg",
+      "rating": 5.9,
+      "year": 2025
+    },
+    {
+      "doubanId": 37284414,
+      "title": "攻击鬼魂13号 วิญญาณเลขที่ 13",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2926423666.jpg",
+      "rating": 5.6,
+      "year": 2025
+    },
+    {
+      "doubanId": 37125887,
+      "title": "家用摄像头 홈캠",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2924003559.jpg",
+      "rating": 5.5,
+      "year": 2025
+    },
+    {
+      "doubanId": 36887295,
+      "title": "良人 Keeper",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2923213094.jpg",
+      "rating": 5.3,
+      "year": 2025
+    },
+    {
+      "doubanId": 37249189,
+      "title": "背后有人",
+      "posterPath": "https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2927687416.jpg",
+      "rating": 0,
+      "year": 2025
+    },
+    {
+      "doubanId": 37155129,
+      "title": "近畿怪谈 近畿地方のある場所について",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2925257530.jpg",
+      "rating": 6.4,
+      "year": 2025
+    },
+    {
+      "doubanId": 36576817,
+      "title": "山忌 黄衣小飞侠 山忌 黃衣小飛俠",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2923594788.jpg",
+      "rating": 4.5,
+      "year": 2025
+    },
+    {
+      "doubanId": 35273098,
+      "title": "亚洲怪谈 第二季 Folklore Season 2",
+      "posterPath": "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2711178217.jpg",
+      "rating": 5.8,
+      "year": 2021
+    },
+    {
+      "doubanId": 36617018,
+      "title": "象山发光事件",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2926607448.jpg",
+      "rating": 5.2,
+      "year": 2025
+    },
+    {
+      "doubanId": 35519019,
+      "title": "寻踪迷镇 Shelby Oaks",
+      "posterPath": "https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2927024080.jpg",
+      "rating": 4.6,
+      "year": 2024
+    }
+  ]
+}
