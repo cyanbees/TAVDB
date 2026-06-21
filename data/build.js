@@ -321,6 +321,7 @@ async function main() {
       return {
         doubanId: item.doubanId,
         title: item.title || "",
+        tmdbId: item.tmdbId || null,
         posterPath: null,
         rating: null,
         year: year,
@@ -411,6 +412,7 @@ async function main() {
     return {
       doubanId: item.doubanId,
       title: item.title || "",
+      tmdbId: item.tmdbId || null,
       posterPath: null,
       rating: null,
       year: year,
