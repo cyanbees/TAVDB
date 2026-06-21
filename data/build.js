@@ -315,6 +315,8 @@ async function main() {
 
     var outFile = path.join(DATA_DIR, "coming_soon.json");
     fs.writeFileSync(outFile, JSON.stringify({
+      doulistId: "coming_soon",
+      title: "即将上映",
       updatedAt: new Date().toISOString(),
       count: items.length,
       items: items,
@@ -391,6 +393,8 @@ async function main() {
   });
   var comingFile = path.join(DATA_DIR, "coming_soon.json");
   fs.writeFileSync(comingFile, JSON.stringify({
+    doulistId: "coming_soon",
+    title: "即将上映",
     updatedAt: new Date().toISOString(),
     count: comingItems.length,
     items: comingItems,
