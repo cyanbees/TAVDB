@@ -272,10 +272,10 @@ async function resolveTMDB(items, apiKey) {
 
       if (data.results && data.results.length > 0) {
         var best = data.results[0];
-        // 验证年份是否匹配
         var resultYear = best.release_date ? best.release_date.substring(0, 4) : "";
         if (!year || !resultYear || year === resultYear) {
           item.tmdbId = best.id;
+          item.tmdbPoster = best.poster_path || null;
         }
       }
     } catch (e) {
@@ -322,6 +322,7 @@ async function main() {
         doubanId: item.doubanId,
         title: item.title || "",
         tmdbId: item.tmdbId || null,
+        tmdbPoster: item.tmdbPoster || null,
         posterPath: null,
         rating: null,
         year: year,
@@ -413,6 +414,7 @@ async function main() {
       doubanId: item.doubanId,
       title: item.title || "",
       tmdbId: item.tmdbId || null,
+      tmdbPoster: item.tmdbPoster || null,
       posterPath: null,
       rating: null,
       year: year,

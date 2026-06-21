@@ -7,6 +7,7 @@
       "doubanId": 37497264,
       "title": "守密者",
       "tmdbId": null,
+      "tmdbPoster": null,
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -15,6 +16,7 @@
       "doubanId": 34786813,
       "title": "关索岭",
       "tmdbId": 1714841,
+      "tmdbPoster": "/hPBNYaVAwouAhLu2RpPxXZxKBvn.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -23,6 +25,7 @@
       "doubanId": 36235977,
       "title": "后室",
       "tmdbId": 1083381,
+      "tmdbPoster": "/nS8TOKb62LnYJy1iszSV2pNEAQk.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -31,6 +34,7 @@
       "doubanId": 36225840,
       "title": "超级少女",
       "tmdbId": 1081003,
+      "tmdbPoster": "/qJDJ2NzoBfaPktg8Ic10Mx9tWX7.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -39,6 +43,7 @@
       "doubanId": 37191746,
       "title": "四渡",
       "tmdbId": 1604133,
+      "tmdbPoster": "/7L9ymMPeBo4hSPlBGPvlzO6102T.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -47,6 +52,7 @@
       "doubanId": 37354866,
       "title": "心犬相随",
       "tmdbId": 1319522,
+      "tmdbPoster": "/tZILgLUZW8BjkydL31yhlaxcZdV.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -55,6 +61,7 @@
       "doubanId": 36315000,
       "title": "爸爸",
       "tmdbId": null,
+      "tmdbPoster": null,
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -63,6 +70,7 @@
       "doubanId": 36937765,
       "title": "一个部门的诞生",
       "tmdbId": 1396674,
+      "tmdbPoster": "/azv0T4WEDjaaRe7ZeiegUEsKMHs.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -71,6 +79,7 @@
       "doubanId": 37457160,
       "title": "小气鬼",
       "tmdbId": 1522776,
+      "tmdbPoster": "/sJVh2U27BXwnfT05kpLOmo0ZUop.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -79,6 +88,7 @@
       "doubanId": 37474709,
       "title": "我的爱人",
       "tmdbId": 1698965,
+      "tmdbPoster": "/lt7NLcC69w2TW24Tqq9CRwB89b5.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -87,6 +97,7 @@
       "doubanId": 38455489,
       "title": "幻影游船",
       "tmdbId": 1715479,
+      "tmdbPoster": "/xqekZag8oc6LXGEsiyGRiEq9Oul.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -95,6 +106,7 @@
       "doubanId": 35619616,
       "title": "蓝蓝的天上白云飘",
       "tmdbId": 1591929,
+      "tmdbPoster": "/lt12siSVn6meB3FAQhofhnY4Wpl.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -103,6 +115,7 @@
       "doubanId": 36808876,
       "title": "奥德赛",
       "tmdbId": 1368337,
+      "tmdbPoster": "/3O6ufZBBjLB29NpJOe8awMzQ4XN.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -111,6 +124,7 @@
       "doubanId": 36953973,
       "title": "特立独行",
       "tmdbId": 1353926,
+      "tmdbPoster": "/cyzcsp95W2Op3G5Gb8S2cPEnSc2.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -119,6 +133,7 @@
       "doubanId": 36962219,
       "title": "小黄人与大怪兽",
       "tmdbId": 1315772,
+      "tmdbPoster": "/4RRGjHlhCJAU8vkJwzYd2bH9IkL.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -127,6 +142,7 @@
       "doubanId": 36808520,
       "title": "魔方小姐",
       "tmdbId": 1257942,
+      "tmdbPoster": "/mrz0N2VOnwI5L8CVvTnzatKRWC9.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -135,6 +151,7 @@
       "doubanId": 37942006,
       "title": "开个玩笑",
       "tmdbId": 1613857,
+      "tmdbPoster": "/kI0Y4huryV7A5vXPveMftk6oINd.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -143,6 +160,7 @@
       "doubanId": 36752981,
       "title": "三国第一部：争洛阳",
       "tmdbId": 1671541,
+      "tmdbPoster": "/vsDiLRTjXmK75PXG2jPn575yCnj.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -151,6 +169,7 @@
       "doubanId": 36343469,
       "title": "海洋奇缘：启航",
       "tmdbId": 1108427,
+      "tmdbPoster": "/9BnjnrfoZbeNjwXICd8Sax8zKeH.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -159,6 +178,7 @@
       "doubanId": 26822087,
       "title": "大圣崛起",
       "tmdbId": 1658666,
+      "tmdbPoster": "/dKO41iA97UtXuCCtX3kOm8HPWCt.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -167,6 +187,7 @@
       "doubanId": 37435260,
       "title": "林家宅37号",
       "tmdbId": null,
+      "tmdbPoster": null,
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -175,6 +196,7 @@
       "doubanId": 37021936,
       "title": "想你了",
       "tmdbId": 1713529,
+      "tmdbPoster": "/cpNzhT5sr4u7qfZVKEToBbZMyqy.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -183,6 +205,7 @@
       "doubanId": 36882191,
       "title": "八仙！",
       "tmdbId": 1633056,
+      "tmdbPoster": "/aXnmhBIdgZNxlJZDHIqkRwxHsGi.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -191,6 +214,7 @@
       "doubanId": 35558234,
       "title": "澎湖海战",
       "tmdbId": 1298718,
+      "tmdbPoster": "/ygfH6imHlC8RRXE5GXLSY8Juf17.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -199,6 +223,7 @@
       "doubanId": 36246195,
       "title": "蜘蛛侠：崭新之日",
       "tmdbId": 969681,
+      "tmdbPoster": "/6EErlfr8sZjZlx1PF4BND5W8XL6.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -207,6 +232,7 @@
       "doubanId": 35875462,
       "title": "群星闪耀时",
       "tmdbId": 1305665,
+      "tmdbPoster": "/gYsNMAx46IwYtNdeIm4XM6xWZ52.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -215,6 +241,7 @@
       "doubanId": 36850814,
       "title": "年会不能停2！",
       "tmdbId": 1541125,
+      "tmdbPoster": "/uRplFSxmnJGgzrGMqKB5xu7WMAI.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -223,6 +250,7 @@
       "doubanId": 35464353,
       "title": "大唐妖探",
       "tmdbId": 1630030,
+      "tmdbPoster": "/pMr7CamEiowr4Agoza4LA6CX0qe.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -231,6 +259,7 @@
       "doubanId": 36791178,
       "title": "汪汪队立大功大电影3：勇闯恐龙...",
       "tmdbId": 1185806,
+      "tmdbPoster": "/v5eNuyj8lj6YYrPBxQfebn7yI1v.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -239,6 +268,7 @@
       "doubanId": 36318703,
       "title": "逃出绝命街",
       "tmdbId": 1101383,
+      "tmdbPoster": "/a3rWaD4nbPlJ6kSOMO26j8fKS8a.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -247,6 +277,7 @@
       "doubanId": 37452950,
       "title": "偷偷藏不住",
       "tmdbId": 1609560,
+      "tmdbPoster": "/eT0danpvSg5uAoJMoXgwG7yvJza.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -255,6 +286,7 @@
       "doubanId": 36994226,
       "title": "偷偷喜欢你",
       "tmdbId": null,
+      "tmdbPoster": null,
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -263,6 +295,7 @@
       "doubanId": 35390242,
       "title": "我想留在你身边",
       "tmdbId": 1716541,
+      "tmdbPoster": "/g3vAs00Nw3kxzBP0g9Q9pmsV7hj.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -271,6 +304,7 @@
       "doubanId": 35209727,
       "title": "密档",
       "tmdbId": 1502135,
+      "tmdbPoster": "/gJpGtOq2fGwYDvsk5seQR7DAKBy.jpg",
       "posterPath": null,
       "rating": null,
       "year": 2026
@@ -279,6 +313,7 @@
       "doubanId": 36212391,
       "title": "流浪地球3(上)",
       "tmdbId": null,
+      "tmdbPoster": null,
       "posterPath": null,
       "rating": null,
       "year": 2027

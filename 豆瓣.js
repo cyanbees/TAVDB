@@ -254,11 +254,16 @@ async function listComingSoon(params) {
     var pageItems = data.items.slice(start, start + 25);
 
     return pageItems.map(function (item) {
+      var posterPath = undefined;
+      if (item.tmdbPoster) {
+        posterPath = "https://image.tmdb.org/t/p/w500" + item.tmdbPoster;
+      }
       return {
         id: "s" + item.doubanId,
         type: "url",
         mediaType: "movie",
         title: item.title || undefined,
+        posterPath: posterPath,
         url: "",
       };
     });
