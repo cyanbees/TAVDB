@@ -321,8 +321,8 @@ async function main() {
       return {
         doubanId: item.doubanId,
         title: item.title || "",
-        posterPath: "",
-        rating: 0,
+        posterPath: null,
+        rating: null,
         year: year,
       };
     });
@@ -411,8 +411,8 @@ async function main() {
     return {
       doubanId: item.doubanId,
       title: item.title || "",
-      posterPath: "",
-      rating: 0,
+      posterPath: null,
+      rating: null,
       year: year,
     };
   });
