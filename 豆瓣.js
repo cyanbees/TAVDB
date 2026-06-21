@@ -62,70 +62,41 @@ WidgetMetadata = {
   ],
 };
 
-// ─── GitHub 数据源地址 ───
-// 内置豆列数据存储在 GitHub 仓库的 data/ 目录下
-// 优先用 jsDelivr CDN（国内可访问），回退到 raw.githubusercontent.com
-var DATA_BASE = "https://cdn.jsdelivr.net/gh/cyanbees/TAVDB@main/data/";
-var DATA_BASE_FALLBACK = "https://raw.githubusercontent.com/cyanbees/TAVDB/main/data/";
+// ─── GitHub 数据源（直连 raw，不经过 jsDelivr，避免 CDN 超时） ───
+var DATA_BASE = "https://raw.githubusercontent.com/cyanbees/TAVDB/main/data/";
 
-// ─── 内置豆列名称映射（仅用于校验和显示） ───
-var BUILTIN_NAMES = {
-  "1652843":   "Time Out影史百大恐怖片",
-  "36980":     "看电影40部最经典恐怖片",
-  "36280":     "恐惧感的丧失(309部)",
-  "37140418":  "难忘的经典惊悚/恐怖片(547部)",
-  "526461":    "7分以上的恐怖/惊悚电影(174部)",
-  "5916567":   "高分精品恐怖片(280部)",
-  "3356598":   "2000后优秀恐怖电影(204部)",
-  "724565":    "被忽略掉的不沉闷恐怖劲片！(77部)",
-  "152540212": "Indiewire: 50位导演心中的最佳恐怖片(48部)",
-  "109801736": "稀有难找 underground horror films(466部)",
-  "159889980": "血浆片已阅整理 Gory Horror Film(47部)",
-  "124549602": "女性导演恐怖片(383部)",
-  "162107956": "Body Horror｜身体恐怖电影(155部)",
-  "161922461": "瘆临其境！恐怖伪纪录片(193部)",
-  "163019144": "码住！盘点欧美高分恐怖电影(585部)",
-  "163048555": "怪力乱神！欧美超自然恐怖电影(206部)",
-  "159035683": "审美与创意兼顾的恐怖片(96部)",
-  "148836450": "我看过的恐怖片们(254部)",
-  "45782339":  "我的恐怖片之旅(1534部)",
-  "163145526": "码住！2026年恐怖电影大盘点(304部)",
+// ─── 内置豆列名称 + 文件名映射（一步到位，省去 index 请求） ───
+var BUILTIN_LISTS = {
+  "1652843":   { t: "Time Out影史百大恐怖片", f: "doulist_1652843.json" },
+  "36980":     { t: "看电影40部最经典恐怖片", f: "doulist_36980.json" },
+  "36280":     { t: "恐惧感的丧失(309部)", f: "doulist_36280.json" },
+  "37140418":  { t: "难忘的经典惊悚/恐怖片(547部)", f: "doulist_37140418.json" },
+  "526461":    { t: "7分以上的恐怖/惊悚电影(174部)", f: "doulist_526461.json" },
+  "5916567":   { t: "高分精品恐怖片(280部)", f: "doulist_5916567.json" },
+  "3356598":   { t: "2000后优秀恐怖电影(204部)", f: "doulist_3356598.json" },
+  "724565":    { t: "被忽略掉的不沉闷恐怖劲片！(77部)", f: "doulist_724565.json" },
+  "152540212": { t: "Indiewire: 50位导演心中的最佳恐怖片(48部)", f: "doulist_152540212.json" },
+  "109801736": { t: "稀有难找 underground horror films(466部)", f: "doulist_109801736.json" },
+  "159889980": { t: "血浆片已阅整理 Gory Horror Film(47部)", f: "doulist_159889980.json" },
+  "124549602": { t: "女性导演恐怖片(383部)", f: "doulist_124549602.json" },
+  "162107956": { t: "Body Horror｜身体恐怖电影(155部)", f: "doulist_162107956.json" },
+  "161922461": { t: "瘆临其境！恐怖伪纪录片(193部)", f: "doulist_161922461.json" },
+  "163019144": { t: "码住！盘点欧美高分恐怖电影(585部)", f: "doulist_163019144.json" },
+  "163048555": { t: "怪力乱神！欧美超自然恐怖电影(206部)", f: "doulist_163048555.json" },
+  "159035683": { t: "审美与创意兼顾的恐怖片(96部)", f: "doulist_159035683.json" },
+  "148836450": { t: "我看过的恐怖片们(254部)", f: "doulist_148836450.json" },
+  "45782339":  { t: "我的恐怖片之旅(1534部)", f: "doulist_45782339.json" },
+  "163145526": { t: "码住！2026年恐怖电影大盘点(304部)", f: "doulist_163145526.json" },
 };
 
-// ─── 辅助：带 CDN 回退的 JSON 获取 ───
+// ─── 辅助：直接请求 GitHub raw，超时 5秒 ───
 async function fetchDataJSON(path) {
-  var primaryUrl = DATA_BASE + path;
-  var fallbackUrl = DATA_BASE_FALLBACK + path;
-
-  // 尝试主地址
-  try {
-    var res = await Widget.http.get(primaryUrl, {
-      headers: { "User-Agent": "Mozilla/5.0" },
-      timeout: 6000,
-    });
-    if (res && res.data) {
-      console.log("[豆瓣] 数据来源: jsDelivr CDN");
-      return typeof res.data === "object" ? res.data : JSON.parse(res.data);
-    }
-  } catch (e) {
-    console.warn("[豆瓣] CDN 获取失败，尝试 GitHub raw:", e.message);
-  }
-
-  // 回退到 GitHub raw
-  try {
-    var res = await Widget.http.get(fallbackUrl, {
-      headers: { "User-Agent": "Mozilla/5.0" },
-      timeout: 8000,
-    });
-    if (res && res.data) {
-      console.log("[豆瓣] 数据来源: GitHub raw");
-      return typeof res.data === "object" ? res.data : JSON.parse(res.data);
-    }
-  } catch (e) {
-    console.warn("[豆瓣] GitHub raw 也失败:", e.message);
-  }
-
-  throw new Error("无法获取数据文件，请检查网络或稍后再试");
+  var res = await Widget.http.get(DATA_BASE + path, {
+    headers: { "User-Agent": "Mozilla/5.0" },
+    timeout: 5000,
+  });
+  if (!res || !res.data) throw new Error("数据为空");
+  return typeof res.data === "object" ? res.data : JSON.parse(res.data);
 }
 
 // ─── 主函数 ───
@@ -133,51 +104,23 @@ async function list(params) {
   try {
     var selectedList = params.list || "1652843";
 
-    // ── 分支1: 自定义URL → 实时抓取豆瓣（保留原有逻辑） ──
     if (selectedList === "custom") {
       return await fetchFromDouban(params);
     }
 
-    // ── 分支2: 内置豆列 → 从 GitHub 读取 JSON ──
-    var listTitle = BUILTIN_NAMES[selectedList];
-    if (!listTitle) {
-      throw new Error("无效的片单选择");
-    }
-    console.log("[豆瓣] 使用内置片单:", listTitle);
+    var preset = BUILTIN_LISTS[selectedList];
+    if (!preset) throw new Error("无效的片单选择");
+    console.log("[豆瓣] 使用内置片单:", preset.t);
 
-    // 读取索引文件，找到目标豆列的文件名
-    var indexData = await fetchDataJSON("doulist_index.json");
-    if (!indexData || !indexData.doulists) {
-      throw new Error("索引文件格式错误");
-    }
+    var doulistData = await fetchDataJSON(preset.f);
+    if (!doulistData || !doulistData.items) throw new Error("豆列数据格式错误");
 
-    // 查找对应的豆列
-    var doulistMeta = null;
-    for (var i = 0; i < indexData.doulists.length; i++) {
-      if (indexData.doulists[i].id === selectedList) {
-        doulistMeta = indexData.doulists[i];
-        break;
-      }
-    }
-    if (!doulistMeta) {
-      throw new Error("未找到豆列数据: " + listTitle);
-    }
-
-    // 读取豆列数据文件
-    var doulistData = await fetchDataJSON(doulistMeta.file);
-    if (!doulistData || !doulistData.items) {
-      throw new Error("豆列数据文件格式错误");
-    }
-
-    // 分页：每页25条
     var page = Number(params.page || 1);
-    var pageSize = 25;
-    var start = (page - 1) * pageSize;
-    var pageItems = doulistData.items.slice(start, start + pageSize);
+    var start = (page - 1) * 25;
+    var pageItems = doulistData.items.slice(start, start + 25);
 
-    console.log("[豆瓣] 片单:", listTitle, "第" + page + "页, 共" + pageItems.length + "条");
+    console.log("[豆瓣] 片单:", preset.t, "第" + page + "页, 共" + pageItems.length + "条");
 
-    // 转换为标准 VideoItem 格式
     return pageItems.map(function (item) {
       return {
         id: item.doubanId,
@@ -191,8 +134,8 @@ async function list(params) {
 
   } catch (error) {
     console.error("[豆瓣] list 失败:", error.message || error);
-    // 如果从 GitHub 读取失败，降级到实时抓取兜底
-    if (error.message && error.message.indexOf("数据文件") >= 0) {
+    var isDataError = error.message && error.message.indexOf("数") >= 0;
+    if (isDataError) {
       console.warn("[豆瓣] 降级到实时抓取兜底...");
       return await fetchFromDouban(params);
     }
@@ -206,10 +149,10 @@ async function fetchFromDouban(params) {
   var url = params.url ? params.url.trim() : "";
 
   if (selectedList !== "custom") {
-    var presetName = BUILTIN_NAMES[selectedList];
+    var presetName = BUILTIN_LISTS[selectedList];
     if (!presetName) throw new Error("无效的片单选择");
     url = "https://www.douban.com/doulist/" + selectedList + "/";
-    console.log("[豆瓣] 降级抓取片单:", presetName);
+    console.log("[豆瓣] 降级抓取片单:", presetName.t);
   } else if (!url) {
     throw new Error("请提供豆瓣片单地址");
   }
