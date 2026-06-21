@@ -265,8 +265,6 @@ async function listComingSoon(params) {
         type: "douban",
         mediaType: "movie",
         title: item.title || undefined,
-        posterPath: undefined,
-        rating: undefined,
       };
     });
     return pageItems;
