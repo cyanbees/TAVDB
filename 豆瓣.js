@@ -281,9 +281,10 @@ async function listComingSoon(params) {
       }
       return {
         id: item.doubanId,
-        type: "douban",
+        type: "url",
         mediaType: "movie",
         title: displayTitle,
+        url: "https://movie.douban.com/subject/" + item.doubanId + "/",
       };
     });
 
