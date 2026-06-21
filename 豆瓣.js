@@ -3,7 +3,7 @@ WidgetMetadata = {
   title: "豆瓣片单",
   version: "2.0.0",
   requiredVersion: "0.0.1",
-  description: "内置20个经典恐怖/惊悚片豆列（从 GitHub 数据源读取，无需实时抓取豆瓣），或填入自定义豆瓣豆列链接",
+  description: "内置20个经典恐怖/惊悚片豆列 + 即将上映（从 GitHub 数据源读取，无需实时抓取豆瓣），或填入自定义豆瓣豆列链接",
   author: "EL",
   site: "https://douban.com",
   modules: [
@@ -62,17 +62,29 @@ WidgetMetadata = {
     {
       id: "comingSoon",
       title: "即将上映",
-      functionName: "listComingSoon",
-      cacheDuration: 30,
-      params: [],
-    },
+      functionName: "list",
+      cacheDuration: 43200,
+      params: [
+        {
+          name: "list",
+          title: "片单",
+          type: "constant",
+          value: "comingSoon",
+        },
+        {
+          name: "page",
+          title: "页码",
+          type: "page",
+        }
+      ],
+    }
   ],
 };
 
-// ─── GitHub 数据源（直连 raw，不经过 jsDelivr，避免 CDN 超时） ───
+// ─── GitHub 数据源（直连 raw） ───
 var DATA_BASE = "https://raw.githubusercontent.com/cyanbees/TAVDB/main/data/";
 
-// ─── 内置豆列名称 + 文件名映射（一步到位，省去 index 请求） ───
+// ─── 内置豆列名称 + 文件名映射 ───
 var BUILTIN_LISTS = {
   "1652843":   { t: "Time Out影史百大恐怖片", f: "doulist_1652843.json" },
   "36980":     { t: "看电影40部最经典恐怖片", f: "doulist_36980.json" },
@@ -94,6 +106,7 @@ var BUILTIN_LISTS = {
   "148836450": { t: "我看过的恐怖片们(254部)", f: "doulist_148836450.json" },
   "45782339":  { t: "我的恐怖片之旅(1534部)", f: "doulist_45782339.json" },
   "163145526": { t: "码住！2026年恐怖电影大盘点(304部)", f: "doulist_163145526.json" },
+  "comingSoon":{ t: "即将上映", f: "coming_soon.json" },
 };
 
 // ─── 辅助：直接请求 GitHub raw，超时 5秒 ───
@@ -106,7 +119,7 @@ async function fetchDataJSON(path) {
   return typeof res.data === "object" ? res.data : JSON.parse(res.data);
 }
 
-// ─── 主函数 ───
+// ─── 主函数（同时服务"豆瓣片单"和"即将上映"两个模块） ───
 async function list(params) {
   try {
     var selectedList = params.list || "1652843";
@@ -133,7 +146,7 @@ async function list(params) {
         id: item.doubanId,
         type: "douban",
         mediaType: "movie",
-        title: item.title || undefined,
+        title: item.title || "",
         posterPath: item.posterPath || undefined,
         rating: item.rating || undefined,
       };
@@ -141,8 +154,8 @@ async function list(params) {
 
   } catch (error) {
     console.error("[豆瓣] list 失败:", error.message || error);
-    var isDataError = error.message && error.message.indexOf("数") >= 0;
-    if (isDataError) {
+    var msg = error.message || "";
+    if (msg.indexOf("数据") >= 0 || msg.indexOf("豆列") >= 0) {
       console.warn("[豆瓣] 降级到实时抓取兜底...");
       return await fetchFromDouban(params);
     }
@@ -150,7 +163,7 @@ async function list(params) {
   }
 }
 
-// ─── 兜底函数：实时抓取豆瓣（保留原有逻辑，用于自定义URL或降级） ───
+// ─── 兜底函数：实时抓取豆瓣 ───
 async function fetchFromDouban(params) {
   var selectedList = params.list || "1652843";
   var url = params.url ? params.url.trim() : "";
@@ -213,7 +226,7 @@ async function fetchFromDouban(params) {
       id: id,
       type: "douban",
       mediaType: "movie",
-      title: title || undefined,
+      title: title || "",
       posterPath: posterPath || undefined,
       rating: ratingText ? Number(ratingText) : undefined,
     });
@@ -234,42 +247,11 @@ async function fetchFromDouban(params) {
         id: id,
         type: "douban",
         mediaType: "movie",
-        title: title || undefined,
+        title: title || "",
       });
     });
   }
 
   console.log("[豆瓣] 实时抓取完成，提取:", doubanItems.length, "条");
   return doubanItems;
-}
-
-// ─── 即将上映 ───
-async function listComingSoon(params) {
-  try {
-    var data = await fetchDataJSON("coming_soon.json");
-    if (!data || !data.items) return [];
-
-    var page = Number(params.page || 1);
-    var start = (page - 1) * 25;
-    var pageItems = data.items.slice(start, start + 25);
-
-    return pageItems.map(function (item) {
-      var posterPath = undefined;
-      if (item.tmdbPoster) {
-        posterPath = "https://image.tmdb.org/t/p/w500" + item.tmdbPoster;
-      }
-      return {
-        id: "s" + item.doubanId,
-        type: "url",
-        mediaType: "movie",
-        title: item.title || undefined,
-        posterPath: posterPath,
-        url: "",
-      };
-    });
-
-  } catch (error) {
-    console.error("[豆瓣] 即将上映:", error.message || error);
-    return [];
-  }
 }
