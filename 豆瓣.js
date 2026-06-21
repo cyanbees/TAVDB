@@ -39,7 +39,6 @@ WidgetMetadata = {
             { title: "我看过的恐怖片们(254部)", value: "148836450" },
             { title: "我的恐怖片之旅(1534部)", value: "45782339" },
             { title: "码住！2026年恐怖电影大盘点(304部)", value: "163145526" },
-            { title: "⏎ 即将上映(35部)", value: "coming_soon" },
             { title: "⏎ 自定义URL", value: "custom" },
           ],
         },
@@ -59,6 +58,13 @@ WidgetMetadata = {
           type: "page",
         }
       ],
+    },
+    {
+      id: "comingSoon",
+      title: "即将上映",
+      functionName: "listComingSoon",
+      cacheDuration: 43200,
+      params: [],
     },
   ],
 };
@@ -88,7 +94,6 @@ var BUILTIN_LISTS = {
   "148836450": { t: "我看过的恐怖片们(254部)", f: "doulist_148836450.json" },
   "45782339":  { t: "我的恐怖片之旅(1534部)", f: "doulist_45782339.json" },
   "163145526": { t: "码住！2026年恐怖电影大盘点(304部)", f: "doulist_163145526.json" },
-  "coming_soon": { t: "即将上映(35部)", f: "coming_soon.json" },
 };
 
 // ─── 辅助：直接请求 GitHub raw，超时 5秒 ───
@@ -236,4 +241,29 @@ async function fetchFromDouban(params) {
 
   console.log("[豆瓣] 实时抓取完成，提取:", doubanItems.length, "条");
   return doubanItems;
+}
+
+// ─── 即将上映 ───
+async function listComingSoon(params) {
+  try {
+    var data = await fetchDataJSON("coming_soon.json");
+    if (!data || !data.items) return [];
+
+    var page = Number(params.page || 1);
+    var start = (page - 1) * 25;
+    var pageItems = data.items.slice(start, start + 25);
+
+    return pageItems.map(function (item) {
+      return {
+        id: item.doubanId,
+        type: "douban",
+        mediaType: "movie",
+        title: item.title || undefined,
+      };
+    });
+
+  } catch (error) {
+    console.error("[豆瓣] 即将上映:", error.message || error);
+    return [];
+  }
 }

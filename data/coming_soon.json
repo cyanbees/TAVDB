@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-21T15:33:55.079Z",
+  "updatedAt": "2026-06-21T15:54:22.538Z",
   "count": 35,
   "items": [
     {
@@ -13,7 +13,7 @@
     },
     {
       "doubanId": 34786813,
-      "tmdbId": 1714841,
+      "tmdbId": null,
       "title": "关索岭",
       "releaseDate": "2026-06-25",
       "genres": "动作 / 历史 / 战争",
@@ -22,39 +22,39 @@
     },
     {
       "doubanId": 36235977,
-      "tmdbId": 1083381,
+      "tmdbId": null,
       "title": "后室",
       "releaseDate": "2026-06-26",
       "genres": "科幻 / 恐怖",
       "region": "美国 / 加拿大",
-      "wishCount": 39392
+      "wishCount": 39400
     },
     {
       "doubanId": 36225840,
-      "tmdbId": 1081003,
+      "tmdbId": null,
       "title": "超级少女",
       "releaseDate": "2026-06-26",
       "genres": "动作 / 科幻 / 奇幻",
       "region": "美国",
-      "wishCount": 10886
+      "wishCount": 10887
     },
     {
       "doubanId": 37191746,
-      "tmdbId": 1604133,
+      "tmdbId": null,
       "title": "四渡",
       "releaseDate": "2026-06-26",
       "genres": "历史 / 战争",
       "region": "中国大陆",
-      "wishCount": 6695
+      "wishCount": 6697
     },
     {
       "doubanId": 37354866,
-      "tmdbId": 1319522,
+      "tmdbId": null,
       "title": "心犬相随",
       "releaseDate": "2026-06-26",
       "genres": "剧情 / 喜剧 / 爱情",
       "region": "泰国",
-      "wishCount": 2398
+      "wishCount": 2401
     },
     {
       "doubanId": 36315000,
@@ -63,11 +63,11 @@
       "releaseDate": "2026-06-27",
       "genres": "剧情",
       "region": "中国香港",
-      "wishCount": 16451
+      "wishCount": 16455
     },
     {
       "doubanId": 36937765,
-      "tmdbId": 1396674,
+      "tmdbId": null,
       "title": "一个部门的诞生",
       "releaseDate": "2026-06-27",
       "genres": "剧情 / 喜剧 / 犯罪",
@@ -76,16 +76,16 @@
     },
     {
       "doubanId": 37457160,
-      "tmdbId": 1522776,
+      "tmdbId": null,
       "title": "小气鬼",
       "releaseDate": "2026-06-27",
       "genres": "剧情",
       "region": "中国大陆",
-      "wishCount": 499
+      "wishCount": 500
     },
     {
       "doubanId": 37474709,
-      "tmdbId": 1698965,
+      "tmdbId": null,
       "title": "我的爱人",
       "releaseDate": "2026-06-27",
       "genres": "爱情",
@@ -94,16 +94,16 @@
     },
     {
       "doubanId": 38455489,
-      "tmdbId": 1715479,
+      "tmdbId": null,
       "title": "幻影游船",
       "releaseDate": "2026-06-27",
       "genres": "科幻 / 动画",
       "region": "中国大陆",
-      "wishCount": 66
+      "wishCount": 67
     },
     {
       "doubanId": 35619616,
-      "tmdbId": 1591929,
+      "tmdbId": null,
       "title": "蓝蓝的天上白云飘",
       "releaseDate": "2026-06-30",
       "genres": "剧情",
@@ -112,43 +112,43 @@
     },
     {
       "doubanId": 36808876,
-      "tmdbId": 1368337,
+      "tmdbId": null,
       "title": "奥德赛",
       "releaseDate": "2026-07-01",
       "genres": "动作 / 历史 / 奇幻",
       "region": "美国 / 英国",
-      "wishCount": 79072
+      "wishCount": 79083
     },
     {
       "doubanId": 36953973,
-      "tmdbId": 1353926,
+      "tmdbId": null,
       "title": "特立独行",
       "releaseDate": "2026-07-03",
       "genres": "剧情 / 喜剧",
       "region": "中国大陆",
-      "wishCount": 20304
+      "wishCount": 20309
     },
     {
       "doubanId": 36962219,
-      "tmdbId": 1315772,
+      "tmdbId": null,
       "title": "小黄人与大怪兽",
       "releaseDate": "2026-07-03",
       "genres": "喜剧 / 科幻 / 动画",
       "region": "美国",
-      "wishCount": 10696
+      "wishCount": 10701
     },
     {
       "doubanId": 36808520,
-      "tmdbId": 1257942,
+      "tmdbId": null,
       "title": "魔方小姐",
       "releaseDate": "2026-07-03",
       "genres": "剧情",
       "region": "中国大陆 / 中国香港",
-      "wishCount": 4541
+      "wishCount": 4549
     },
     {
       "doubanId": 37942006,
-      "tmdbId": 1613857,
+      "tmdbId": null,
       "title": "开个玩笑",
       "releaseDate": "2026-07-03",
       "genres": "剧情",
@@ -157,30 +157,30 @@
     },
     {
       "doubanId": 36752981,
-      "tmdbId": 1671541,
+      "tmdbId": null,
       "title": "三国第一部：争洛阳",
       "releaseDate": "2026-07-10",
       "genres": "历史 / 动画",
       "region": "中国大陆",
-      "wishCount": 3977
+      "wishCount": 3978
     },
     {
       "doubanId": 36343469,
-      "tmdbId": 1108427,
+      "tmdbId": null,
       "title": "海洋奇缘：启航",
       "releaseDate": "2026-07-10",
       "genres": "喜剧 / 动作 / 奇幻",
       "region": "美国 / 新西兰",
-      "wishCount": 3683
+      "wishCount": 3687
     },
     {
       "doubanId": 26822087,
-      "tmdbId": 1658666,
+      "tmdbId": null,
       "title": "大圣崛起",
       "releaseDate": "2026-07-10",
       "genres": "动画 / 奇幻 / 冒险",
       "region": "中国大陆",
-      "wishCount": 2991
+      "wishCount": 2992
     },
     {
       "doubanId": 37435260,
@@ -193,7 +193,7 @@
     },
     {
       "doubanId": 37021936,
-      "tmdbId": 1713529,
+      "tmdbId": null,
       "title": "想你了",
       "releaseDate": "2026-07-24",
       "genres": "剧情",
@@ -202,7 +202,7 @@
     },
     {
       "doubanId": 36882191,
-      "tmdbId": 1633056,
+      "tmdbId": null,
       "title": "八仙！",
       "releaseDate": "2026-07-24",
       "genres": "喜剧 / 动画 / 奇幻",
@@ -211,7 +211,7 @@
     },
     {
       "doubanId": 35558234,
-      "tmdbId": 1298718,
+      "tmdbId": null,
       "title": "澎湖海战",
       "releaseDate": "2026-07-25",
       "genres": "动作 / 历史 / 战争",
@@ -220,34 +220,34 @@
     },
     {
       "doubanId": 36246195,
-      "tmdbId": 969681,
+      "tmdbId": null,
       "title": "蜘蛛侠：崭新之日",
       "releaseDate": "2026-07-29",
       "genres": "动作 / 科幻 / 奇幻",
       "region": "美国",
-      "wishCount": 34401
+      "wishCount": 34412
     },
     {
       "doubanId": 35875462,
-      "tmdbId": 1305665,
+      "tmdbId": null,
       "title": "群星闪耀时",
       "releaseDate": "2026-08-01",
       "genres": "剧情 / 科幻",
       "region": "中国大陆",
-      "wishCount": 3928
+      "wishCount": 3934
     },
     {
       "doubanId": 36850814,
-      "tmdbId": 1541125,
+      "tmdbId": null,
       "title": "年会不能停2！",
       "releaseDate": "2026-08-07",
       "genres": "喜剧",
       "region": "中国大陆",
-      "wishCount": 9630
+      "wishCount": 9634
     },
     {
       "doubanId": 35464353,
-      "tmdbId": 1630030,
+      "tmdbId": null,
       "title": "大唐妖探",
       "releaseDate": "2026-08-08",
       "genres": "喜剧 / 动画 / 悬疑",
@@ -256,7 +256,7 @@
     },
     {
       "doubanId": 36791178,
-      "tmdbId": 1185806,
+      "tmdbId": null,
       "title": "汪汪队立大功大电影3：勇闯恐龙...",
       "releaseDate": "2026-08-08",
       "genres": "喜剧 / 科幻 / 动画",
@@ -265,16 +265,16 @@
     },
     {
       "doubanId": 36318703,
-      "tmdbId": 1101383,
+      "tmdbId": null,
       "title": "逃出绝命街",
       "releaseDate": "2026-08-14",
       "genres": "动作 / 科幻 / 惊悚",
       "region": "美国",
-      "wishCount": 11636
+      "wishCount": 11640
     },
     {
       "doubanId": 37452950,
-      "tmdbId": 1609560,
+      "tmdbId": null,
       "title": "偷偷藏不住",
       "releaseDate": "2026-08-19",
       "genres": "剧情 / 爱情",
@@ -292,7 +292,7 @@
     },
     {
       "doubanId": 35390242,
-      "tmdbId": 1716541,
+      "tmdbId": null,
       "title": "我想留在你身边",
       "releaseDate": "2026-08-19",
       "genres": "爱情 / 奇幻",
@@ -301,7 +301,7 @@
     },
     {
       "doubanId": 35209727,
-      "tmdbId": 1502135,
+      "tmdbId": null,
       "title": "密档",
       "releaseDate": "2026-08-28",
       "genres": "剧情 / 悬疑",
