@@ -62,15 +62,9 @@ WidgetMetadata = {
     {
       id: "comingSoon",
       title: "即将上映",
-      functionName: "list",
+      functionName: "listComingSoon",
       cacheDuration: 30,
       params: [
-        {
-          name: "list",
-          title: "片单",
-          type: "constant",
-          value: "comingSoon",
-        },
         {
           name: "page",
           title: "页码",
@@ -254,4 +248,40 @@ async function fetchFromDouban(params) {
 
   console.log("[豆瓣] 实时抓取完成，提取:", doubanItems.length, "条");
   return doubanItems;
+}
+
+// ─── 即将上映独立模块 ───
+var COMING_SOON_URL = "https://raw.githubusercontent.com/cyanbees/TAVDB/main/data/coming_soon.json";
+
+async function listComingSoon(params) {
+  try {
+    var res = await Widget.http.get(COMING_SOON_URL, {
+      headers: { "User-Agent": "Mozilla/5.0" },
+      timeout: 5000,
+    });
+    if (!res || !res.data) return [];
+
+    var data = typeof res.data === "object" ? res.data : JSON.parse(res.data);
+    if (!data || !data.items) return [];
+
+    var page = Number(params.page || 1);
+    var start = (page - 1) * 25;
+    var pageItems = data.items.slice(start, start + 25);
+
+    console.log("[豆瓣] 即将上映: 第" + page + "页, 共" + pageItems.length + "条");
+
+    return pageItems.map(function (item) {
+      return {
+        id: item.doubanId,
+        type: "douban",
+        mediaType: "movie",
+        title: item.title || "",
+        posterPath: item.posterPath || (item.tmdbPoster ? "https://image.tmdb.org/t/p/w500" + item.tmdbPoster : undefined),
+      };
+    });
+
+  } catch (error) {
+    console.error("[豆瓣] 即将上映获取失败:", error.message || error);
+    return [];
+  }
 }
