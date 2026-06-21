@@ -311,13 +311,30 @@ async function main() {
       return (a.releaseDate || "").localeCompare(b.releaseDate || "");
     });
 
+    // 转为豆列格式（去掉 tmdbId/genres/region/wishCount 等多余字段）
+    var doulistItems = items.map(function (item) {
+      var year = 0;
+      if (item.releaseDate) {
+        var ym = item.releaseDate.match(/^(\d{4})/);
+        if (ym) year = parseInt(ym[1], 10);
+      }
+      return {
+        doubanId: item.doubanId,
+        title: item.title || "",
+        posterPath: "",
+        rating: 0,
+        year: year,
+      };
+    });
+
     var outFile = path.join(DATA_DIR, "coming_soon.json");
     fs.writeFileSync(outFile, JSON.stringify({
-      updatedAt: new Date().toISOString(),
-      count: items.length,
-      items: items,
+      doulistId: "coming_soon",
+      title: "即将上映",
+      count: doulistItems.length,
+      items: doulistItems,
     }, null, 2), "utf8");
-    console.log("\n→ 已写入: coming_soon.json (共 " + items.length + " 部)");
+    console.log("\n→ 已写入: coming_soon.json (共 " + doulistItems.length + " 部)");
     return;
   }
 
@@ -382,18 +399,31 @@ async function main() {
   // ─── 即将上映 ───
   console.log("\n── 即将上映 ──");
   var comingItems = await fetchComingSoon();
-  var apiKey = process.env.TMDB_API_KEY || "";
-  comingItems = await resolveTMDB(comingItems, apiKey);
   comingItems.sort(function (a, b) {
     return (a.releaseDate || "").localeCompare(b.releaseDate || "");
   });
+  var doulistItems = comingItems.map(function (item) {
+    var year = 0;
+    if (item.releaseDate) {
+      var ym = item.releaseDate.match(/^(\d{4})/);
+      if (ym) year = parseInt(ym[1], 10);
+    }
+    return {
+      doubanId: item.doubanId,
+      title: item.title || "",
+      posterPath: "",
+      rating: 0,
+      year: year,
+    };
+  });
   var comingFile = path.join(DATA_DIR, "coming_soon.json");
   fs.writeFileSync(comingFile, JSON.stringify({
-    updatedAt: new Date().toISOString(),
-    count: comingItems.length,
-    items: comingItems,
+    doulistId: "coming_soon",
+    title: "即将上映",
+    count: doulistItems.length,
+    items: doulistItems,
   }, null, 2), "utf8");
-  console.log(`→ 已写入: coming_soon.json (共 ${comingItems.length} 部)`);
+  console.log(`→ 已写入: coming_soon.json (共 ${doulistItems.length} 部)`);
 
   console.log("\n═══════════════════════════════");
   console.log("  构建完成!");
