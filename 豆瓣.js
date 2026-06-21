@@ -268,19 +268,16 @@ async function listComingSoon(params) {
     });
 
     return sorted.map(function (item) {
-      var video = {
-        id: item.tmdbId || item.doubanId,
-        type: item.tmdbId ? "tmdb" : "douban",
+      var displayTitle = item.title;
+      if (item.releaseDate) {
+        displayTitle = "[" + item.releaseDate.substring(5) + "] " + item.title;
+      }
+      return {
+        id: item.doubanId,
+        type: "douban",
         mediaType: "movie",
-        title: item.title,
-        comingSoon: {
-          releaseDate: item.releaseDate || "",
-          genres: item.genres || "",
-          region: item.region || "",
-          wishCount: item.wishCount || 0,
-        },
+        title: displayTitle,
       };
-      return video;
     });
 
   } catch (error) {
