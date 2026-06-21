@@ -277,6 +277,7 @@ async function listComingSoon(params) {
           type: "tmdb",
           mediaType: "movie",
           title: item.title || "",
+          posterPath: item.posterPath || undefined,
         };
       }
       return {
