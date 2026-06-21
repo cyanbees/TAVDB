@@ -249,18 +249,9 @@ async function fetchFromDouban(params) {
   return doubanItems;
 }
 
-// ─── 即将上映模块 ───
-var COMING_SOON_URL = "https://raw.githubusercontent.com/cyanbees/TAVDB/main/data/coming_soon.json";
-
 async function listComingSoon(params) {
   try {
-    var res = await Widget.http.get(COMING_SOON_URL, {
-      headers: { "User-Agent": "Mozilla/5.0" },
-      timeout: 5000,
-    });
-    if (!res || !res.data) return [];
-
-    var data = typeof res.data === "object" ? res.data : JSON.parse(res.data);
+    var data = await fetchDataJSON("coming_soon.json");
     if (!data || !data.items) return [];
 
     // 按上映日期排序
@@ -281,10 +272,9 @@ async function listComingSoon(params) {
       }
       return {
         id: item.doubanId,
-        type: "url",
+        type: "douban",
         mediaType: "movie",
         title: displayTitle,
-        url: "https://movie.douban.com/subject/" + item.doubanId + "/",
       };
     });
 
