@@ -113,12 +113,15 @@ async function fetchDataJSON(path) {
   return typeof res.data === "object" ? res.data : JSON.parse(res.data);
 }
 
+// ─── 实时抓取的片单（数据量大，不走 GitHub JSON） ───
+var LIVE_IDS = { "163145526": 1, "124549602": 1, "109801736": 1 };
+
 // ─── 主函数（同时服务"豆瓣片单"和"即将上映"两个模块） ───
 async function list(params) {
   try {
     var selectedList = params.list || "1652843";
 
-    if (selectedList === "custom") {
+    if (selectedList === "custom" || LIVE_IDS[selectedList]) {
       return await fetchFromDouban(params);
     }
 
