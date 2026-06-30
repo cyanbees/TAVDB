@@ -76,7 +76,7 @@ WidgetMetadata = {
 };
 
 // ─── GitHub 数据源（直连 raw） ───
-var DATA_BASE = "https://raw.githubusercontent.com/cyanbees/TAVDB/main/data/";
+var DATA_BASE = "https://raw.githubusercontent.com/cyanbees/douban-widget/main/data/";
 
 // ─── 内置豆列名称 + 文件名映射 ───
 var BUILTIN_LISTS = {
@@ -254,7 +254,7 @@ async function fetchFromDouban(params) {
 }
 
 // ─── 即将上映独立模块 ───
-var COMING_SOON_URL = "https://raw.githubusercontent.com/cyanbees/TAVDB/main/data/coming_soon.json";
+var COMING_SOON_URL = "https://raw.githubusercontent.com/cyanbees/douban-widget/main/data/coming_soon.json";
 
 async function listComingSoon(params) {
   try {
