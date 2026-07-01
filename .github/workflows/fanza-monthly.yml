@@ -16,8 +16,13 @@ jobs:
         with:
           node-version: 24
 
-      - name: 安装依赖
-        run: npm install
+      - name: 安装依赖 + Playwright
+        run: |
+          npm init -y
+          npm install playwright
+
+      - name: 安装 Playwright 浏览器
+        run: npx playwright install --with-deps chromium
 
       - name: 爬取 FANZA 月度榜单
         run: node scripts/fanza-monthly.js
