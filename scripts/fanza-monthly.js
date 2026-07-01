@@ -152,10 +152,22 @@ async function main() {
   // 从页面中提取 CID（多种方法兜底）
   console.log('2. 滚动加载数据...');
   for (let i = 0; i < 10; i++) {
-    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight)).catch(function(){});
     await page.waitForTimeout(1500);
   }
   await page.waitForTimeout(2000);
+
+  // 如果被导航走了，重新导航到排名页
+  if (!page.url().includes('term=') && !page.url().includes('ranking')) {
+    console.log('  重新导航到排名页...');
+    await page.goto(DMM_RANKING_URL, { waitUntil: 'domcontentloaded', timeout: 30000 }).catch(function(){});
+    await page.waitForTimeout(3000);
+    for (let i = 0; i < 5; i++) {
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight)).catch(function(){});
+      await page.waitForTimeout(1500);
+    }
+    await page.waitForTimeout(2000);
+  }
 
   // 方法1: 从 GraphQL 响应提取
   const itemRegex = /\{"id":"([^"]+)","rank":(\d+),/g;
