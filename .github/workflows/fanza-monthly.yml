@@ -30,6 +30,8 @@ jobs:
           TERM: monthly
           JAVDB_USER: ${{ secrets.JAVDB_USER }}
           JAVDB_PASS: ${{ secrets.JAVDB_PASS }}
+          DMM_USER: ${{ secrets.DMM_USER }}
+          DMM_PASS: ${{ secrets.DMM_PASS }}
 
       - name: 提交更新
         run: |
