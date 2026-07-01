@@ -190,37 +190,39 @@ async function main() {
   console.log('3. 提取番号（メーカー品番）...');
   const results = [];
   for (const [rank, cid] of cidEntries) {
-    try {
-      const detailUrl = `https://video.dmm.co.jp/av/content/?id=${cid}`;
-      await page.goto(detailUrl, { waitUntil: 'domcontentloaded', timeout: 20000 });
-      await page.waitForTimeout(1000);
+    let productCode = '';
+    // 最多重试 2 次
+    for (let retry = 0; retry < 2 && !productCode; retry++) {
+      try {
+        const detailUrl = `https://video.dmm.co.jp/av/content/?id=${cid}`;
+        await page.goto(detailUrl, { waitUntil: 'domcontentloaded', timeout: 20000 });
+        await page.waitForTimeout(1000);
 
-      const text = await page.evaluate(() => document.body.innerText);
-      const lines = text.split('\n');
-      let productCode = '';
+        const text = await page.evaluate(() => document.body.innerText);
+        const lines = text.split('\n');
+        let found = false;
 
-      for (let j = 0; j < lines.length; j++) {
-        if (lines[j].includes('メーカー品番')) {
-          const m = lines[j].match(/メーカー品番[：:]\s*(\S+)/);
-          if (m) productCode = m[1];
-          else {
+        for (let j = 0; j < lines.length; j++) {
+          if (lines[j].includes('メーカー品番')) {
+            const m = lines[j].match(/メーカー品番[：:]\s*(\S+)/);
+            if (m) { productCode = m[1]; found = true; break; }
             const next = lines[j + 1]?.trim();
-            if (next && !next.includes('：') && !next.includes(':')) productCode = next;
+            if (next && !next.includes('：') && !next.includes(':')) { productCode = next; found = true; break; }
           }
-          break;
         }
-      }
 
-      if (!productCode) {
-        // 从 CID 猜测番号
-        productCode = guessProductCode(cid);
+        if (found) break;
+      } catch (e) {
+        if (retry === 0) console.log(`  #${rank} 重试...`);
       }
-
-      results.push({ rank, cid, productCode });
-      if (rank % 10 === 0) console.log(`  #${rank}: ${productCode || cid}`);
-    } catch (e) {
-      console.log(`  #${rank} 失败: ${e.message.substring(0, 60)}`);
     }
+
+    if (!productCode) {
+      productCode = guessProductCode(cid);
+    }
+
+    results.push({ rank, cid, productCode });
+    if (rank % 10 === 0) console.log(`  #${rank}: ${productCode || cid}`);
   }
 
   await browser.close();
@@ -252,14 +254,38 @@ async function main() {
 }
 
 function guessProductCode(cid) {
-  // 部分 DMM CID 可以直接推导出番号
+  // DMM CID → メーカー品番 映射规则
   // sqte00633 → SQTE-633
-  const m = cid.match(/^([a-z]+)(\d+)$/);
+  // h_1133yako00073 → YAKO-073 (去掉 h_ 前缀和 studio 号)
+  // 1start00373 → START-373 (1 是内容类型前缀)
+  // 13dsvr01947 → DSVR-1947
+  // h_1745hrsm00087 → HRSM-087
+  // 5013TSDS43094 → TSDS-43094
+
+  let s = cid.toLowerCase();
+
+  // 去掉 h_ 前缀和后面的数字 studio 号
+  // h_1133yako00073 → yako00073
+  let m = s.match(/^h_\d+([a-z]+)(\d+)$/);
   if (m) {
     const prefix = m[1].toUpperCase();
     const num = parseInt(m[2], 10);
     return prefix + '-' + num;
   }
+
+  // 去掉开头的纯数字内容类型前缀: 1xxxx, 13xxxx
+  // 1start00373 → start00373, 13dsvr01947 → dsvr01947
+  s = s.replace(/^\d+/, '');
+
+  // 标准模式: 字母前缀 + 数字（去掉前导零）
+  m = s.match(/^([a-z]+?)(\d+)$/);
+  if (m) {
+    const prefix = m[1].toUpperCase();
+    const num = parseInt(m[2], 10);
+    return prefix + '-' + num;
+  }
+
+  // 最后兜底
   return cid.toUpperCase();
 }
 
