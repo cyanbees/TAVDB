@@ -1,10 +1,13 @@
-// FANZA 月度榜单爬取脚本 (Playwright 版)
+// FANZA 榜单爬取脚本 (Playwright 版)
 // 用 Playwright 浏览器访问 DMM，绕过封锁
 //
 // 用法:
-//   JAVDB_USER=xxx JAVDB_PASS=xxx node scripts/fanza-monthly.js
+//   TERM=daily   JAVDB_USER=xxx JAVDB_PASS=xxx node scripts/fanza-monthly.js
+//   TERM=weekly  JAVDB_USER=xxx JAVDB_PASS=xxx node scripts/fanza-monthly.js
+//   TERM=monthly JAVDB_USER=xxx JAVDB_PASS=xxx node scripts/fanza-monthly.js
 //
-// 输出: data/fanza-monthly.json
+// TERM 取值: daily / weekly / monthly (默认 monthly)
+// 输出: data/fanza-{term}.json
 
 const { chromium } = require('playwright');
 const fs = require('fs');
@@ -12,7 +15,10 @@ const path = require('path');
 const https = require('https');
 const crypto = require('crypto');
 
-const OUTPUT_PATH = path.join(__dirname, '..', 'data', 'fanza-monthly.json');
+const TERM = process.env.TERM || 'monthly';
+const OUTPUT_FILE = process.env.OUTPUT_FILE || `data/fanza-${TERM}.json`;
+const OUTPUT_PATH = path.join(__dirname, '..', OUTPUT_FILE);
+const DMM_RANKING_URL = `https://video.dmm.co.jp/av/ranking/?term=${TERM}`;
 
 // JavDB API
 const JAVDB_BASE = 'https://jdforrepam.com/api';
@@ -109,7 +115,7 @@ function guessProductCode(cid) {
 }
 
 async function main() {
-  console.log('=== FANZA 月度榜单爬取 (Playwright 版) ===');
+  console.log(`=== FANZA ${TERM}榜单爬取 (Playwright 版) ===`);
 
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({
@@ -133,8 +139,8 @@ async function main() {
     }
   });
 
-  console.log('1. 访问 DMM 月榜页面...');
-  await page.goto('https://video.dmm.co.jp/av/ranking/?term=monthly', {
+  console.log(`1. 访问 DMM ${TERM}榜单页面...`);
+  await page.goto(DMM_RANKING_URL, {
     waitUntil: 'domcontentloaded', timeout: 60000
   });
 
@@ -262,7 +268,7 @@ async function main() {
   }
 
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(finalData, null, 2));
-  console.log(`\n✅ 完成! 共 ${finalData.length} 条，写入 ${OUTPUT_PATH}`);
+  console.log(`\n✅ 完成! 共 ${finalData.length} 条，写入 ${OUTPUT_FILE}`);
   console.log('  前 5:', JSON.stringify(finalData.slice(0, 5)));
 }
 
