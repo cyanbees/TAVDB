@@ -144,25 +144,37 @@ async function main() {
     waitUntil: 'domcontentloaded', timeout: 60000
   });
 
-  // 处理年龄验证
+  // 处理年龄验证 + 确保到达正确页面
   try {
     const ageBtn = await page.waitForSelector('a[href*="declared=yes"]', { timeout: 5000 });
     if (ageBtn) {
-      await ageBtn.click();
-      console.log('  年龄验证通过');
-      await page.waitForTimeout(3000);
+      console.log('  年龄验证 - 点击...');
+      await Promise.all([
+        page.waitForNavigation({ timeout: 15000 }).catch(() => {}),
+        ageBtn.click(),
+      ]);
+      await page.waitForTimeout(2000);
     }
   } catch {
     console.log('  无需年龄验证');
   }
 
+  // 确保在排名页面
+  const currentUrl = page.url();
+  if (!currentUrl.includes('term=')) {
+    console.log('  重定向到排名页面...');
+    await page.goto(DMM_RANKING_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    await page.waitForTimeout(2000);
+  }
+  console.log('  当前URL:', page.url().substring(0, 80));
+
   // 滚动加载全部 100 条
   console.log('2. 滚动加载数据...');
   for (let i = 0; i < 8; i++) {
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(2500);
   }
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(3000);
 
   // 从 GraphQL 或页面提取 CID
   let cids = [];
@@ -190,6 +202,16 @@ async function main() {
     return [...ids];
   });
   console.log(`  页面提取到 ${cids.length} 个 CID`);
+
+  if (cids.length === 0) {
+    // 调试: 检查页面内容
+    const debug = await page.evaluate(() => {
+      const links = [...document.querySelectorAll('a[href]')].map(a => a.href).filter(h => h.includes('id=') || h.includes('ranking')).slice(0, 5);
+      const imgs = [...document.querySelectorAll('img[src]')].map(i => i.src).filter(s => s.includes('dmm')).slice(0, 3);
+      return { url: location.href, title: document.title, links, imgs, bodyLen: document.body.innerText.length };
+    });
+    console.log('  调试:', JSON.stringify(debug, null, 2));
+  }
 
   // 如果 GraphQL 数据更完整则覆盖
   if (graphqlData) {
