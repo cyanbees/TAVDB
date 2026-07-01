@@ -257,10 +257,12 @@ async function main() {
     if (token && entry.cid) {
       try {
         const javdbId = await javdbSearch(token, entry.cid);
-        if (javdbId) entry.javdbId = javdbId;
+        if (javdbId) {
+          entry.javdbId = javdbId;
+          finalData.push(entry);
+        }
       } catch {}
     }
-    finalData.push(entry);
   }
 
   // 写入文件
