@@ -147,56 +147,64 @@ async function main() {
   // 处理年龄验证 + 自动登录 (日榜/周榜需要 DMM 账号)
   try {
     await page.waitForTimeout(2000);
-    console.log('  当前URL:', page.url().substring(0, 80));
+    console.log('  初始URL:', page.url().substring(0, 80));
 
-    // 循环处理：年龄验证 → 登录 → 直到到达排名页
-    for (var step = 0; step < 5; step++) {
-      var url = page.url();
-      if (url.includes('term=') || url.includes('ranking')) break;
-
-      if (url.includes('login') || url.includes('accounts.dmm.co.jp')) {
-        console.log('  检测到登录页面，自动登录...');
-        var dmmUser = process.env.DMM_USER || '';
-        var dmmPass = process.env.DMM_PASS || '';
-        if (dmmUser && dmmPass) {
-          await page.waitForSelector('input[name="login_id"], input[type="email"]', { timeout: 10000 });
-          var eInput = await page.$('input[name="login_id"], input[type="email"]');
-          if (eInput) await eInput.fill(dmmUser);
-          await page.waitForTimeout(500);
-          var pInput = await page.$('input[name="password"], input[type="password"]');
-          if (pInput) await pInput.fill(dmmPass);
-          await page.waitForTimeout(500);
-          var btn = await page.$('button[type="submit"], input[type="submit"]');
-          if (btn) {
-            await Promise.all([
-              page.waitForNavigation({ timeout: 15000 }).catch(function(){}),
-              btn.click(),
-            ]);
-            await page.waitForTimeout(3000);
-            console.log('  登录完成, URL:', page.url().substring(0, 80));
-          }
-        } else {
-          console.log('  未配置 DMM 账号');
-          break;
+    // 处理年龄验证
+    if (page.url().includes('age_check')) {
+      try {
+        var ageBtn = await page.waitForSelector('a[href*="declared=yes"]', { timeout: 5000 });
+        if (ageBtn) {
+          console.log('  年龄验证 - 点击...');
+          await ageBtn.click();
+          await page.waitForTimeout(3000);
         }
-      } else {
-        // 年龄验证
-        try {
-          var ageBtn = await page.waitForSelector('a[href*="declared=yes"]', { timeout: 3000 });
-          if (ageBtn) {
-            console.log('  年龄验证 - 点击...');
-            await Promise.all([
-              page.waitForNavigation({ timeout: 15000 }).catch(function(){}),
-              ageBtn.click(),
-            ]);
-            await page.waitForTimeout(2000);
-          } else { break; }
-        } catch (e2) { break; }
+      } catch (e2) { console.log('  年龄验证按钮未找到'); }
+    }
+
+    // 如果跳转到登录页，自动登录
+    if (page.url().includes('login') || page.url().includes('accounts.dmm')) {
+      console.log('  检测到登录页面，自动登录...');
+      var dmmUser = process.env.DMM_USER || '';
+      var dmmPass = process.env.DMM_PASS || '';
+      if (dmmUser && dmmPass) {
+        await page.waitForTimeout(2000);
+        // 填邮箱
+        var emailSel = 'input[name="login_id"], input[type="email"], input[id*="login"], input[id*="mail"]';
+        var emailEl = await page.$(emailSel);
+        if (emailEl) {
+          await emailEl.click();
+          await emailEl.fill(dmmUser);
+          console.log('  已填邮箱');
+        }
+        await page.waitForTimeout(500);
+        // 填密码
+        var passEl = await page.$('input[type="password"]');
+        if (passEl) {
+          await passEl.click();
+          await passEl.fill(dmmPass);
+          console.log('  已填密码');
+        }
+        await page.waitForTimeout(500);
+        // 点登录
+        var btn = await page.$('button[type="submit"], input[type="submit"]');
+        if (btn) {
+          await btn.click();
+          await page.waitForTimeout(5000);
+          console.log('  登录后URL:', page.url().substring(0, 80));
+        }
       }
     }
+
+    // 直接跳转到排名页
+    if (!page.url().includes('term=') && !page.url().includes('ranking')) {
+      console.log('  跳转到排名页面:', DMM_RANKING_URL);
+      await page.goto(DMM_RANKING_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
+      await page.waitForTimeout(3000);
+    }
   } catch (e) {
-    console.log('  页面处理异常:', e && e.message ? e.message.substring(0, 60) : e);
+    console.log('  页面处理异常:', e && e.message ? e.message.substring(0, 80) : e);
   }
+  console.log('  最终URL:', page.url().substring(0, 80));
 
   // 确保在排名页面
   var currentUrl = page.url();
