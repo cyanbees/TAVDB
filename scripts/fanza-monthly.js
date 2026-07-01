@@ -160,6 +160,32 @@ async function main() {
 
   // 从 GraphQL 或页面提取 CID
   let cids = [];
+
+  // 先试页面元素提取
+  cids = await page.evaluate(() => {
+    const ids = new Set();
+    // DMM 排名页内容块
+    document.querySelectorAll('a[href*="?id="]').forEach(a => {
+      const m = a.href.match(/[?&]id=([a-z0-9_]+)/);
+      if (m) ids.add(m[1].toLowerCase());
+    });
+    // 图片路径
+    document.querySelectorAll('img[src*="/video/"]').forEach(img => {
+      const m = img.src.match(/\/video\/([a-z0-9_]+)\/\1/);
+      if (m) ids.add(m[1].toLowerCase());
+    });
+    // 页面文本中的 CID 模式
+    const body = document.body.innerText;
+    const textMatches = body.matchAll(/([a-z0-9_]{8,20})/gi);
+    for (const tm of textMatches) {
+      const t = tm[1].toLowerCase();
+      if (/^[a-z]/.test(t) && /\d{3,}/.test(t)) ids.add(t);
+    }
+    return [...ids];
+  });
+  console.log(`  页面提取到 ${cids.length} 个 CID`);
+
+  // 如果 GraphQL 数据更完整则覆盖
   if (graphqlData) {
     const regex = /\{"id":"([^"]+)","rank":(\d+),/g;
     const map = new Map();
@@ -168,25 +194,11 @@ async function main() {
       const rank = parseInt(m[2]);
       if (!map.has(rank)) map.set(rank, m[1]);
     }
-    cids = [...map.entries()].sort((a, b) => a[0] - b[0]).map(e => e[1]);
-    console.log(`  GraphQL 提取到 ${cids.length} 个 CID`);
-  }
-
-  if (cids.length === 0) {
-    // 从页面 HTML/图片提取
-    cids = await page.evaluate(() => {
-      const ids = new Set();
-      document.querySelectorAll('a[href*="?id="]').forEach(a => {
-        const m = a.href.match(/[?&]id=([a-z0-9_]+)/);
-        if (m) ids.add(m[1].toLowerCase());
-      });
-      document.querySelectorAll('img[src*="video/"]').forEach(img => {
-        const m = img.src.match(/\/video\/([a-z0-9_]+)\/\1/);
-        if (m) ids.add(m[1].toLowerCase());
-      });
-      return [...ids];
-    });
-    console.log(`  页面提取到 ${cids.length} 个 CID`);
+    const graphqlCids = [...map.entries()].sort((a, b) => a[0] - b[0]).map(e => e[1]);
+    if (graphqlCids.length >= 50) {
+      cids = graphqlCids;
+      console.log(`  GraphQL 覆盖, 共 ${cids.length} 个 CID`);
+    }
   }
 
   // 3. 逐个访问详情页提取メーカー品番
