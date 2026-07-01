@@ -215,19 +215,28 @@ async function main() {
   }
   console.log('  当前URL:', page.url().substring(0, 80));
 
+  // 等待页面稳定后再滚动
+  await page.waitForTimeout(3000);
+  console.log('  当前URL:', page.url().substring(0, 80));
+
   // 滚动加载全部 100 条
   console.log('2. 滚动加载数据...');
-  for (let i = 0; i < 8; i++) {
-    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-    await page.waitForTimeout(2500);
+  try {
+    for (let i = 0; i < 8; i++) {
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight)).catch(function(){});
+      await page.waitForTimeout(2500);
+    }
+    await page.waitForTimeout(3000);
+  } catch (e) {
+    console.log('  滚动异常:', e && e.message ? e.message.substring(0, 60) : e);
+    // 滚动失败后再等一等
+    await page.waitForTimeout(5000);
   }
-  await page.waitForTimeout(3000);
 
-  // 从 GraphQL 或页面提取 CID
+  // 从页面提取 CID
   let cids = [];
-
-  // 先试页面元素提取
-  cids = await page.evaluate(() => {
+  try {
+    cids = await page.evaluate(() => {
     const ids = new Set();
     // DMM 排名页内容块
     document.querySelectorAll('a[href*="?id="]').forEach(a => {
@@ -260,6 +269,9 @@ async function main() {
     console.log('  调试:', JSON.stringify(debug, null, 2));
   }
 
+  } catch (e) {
+    console.log("  CID 提取异常:", e && e.message ? e.message.substring(0,60) : e);
+  }
   // 如果 GraphQL 数据更完整则覆盖
   if (graphqlData) {
     const regex = /\{"id":"([^"]+)","rank":(\d+),/g;
