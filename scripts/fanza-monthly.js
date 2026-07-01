@@ -288,7 +288,7 @@ function guessProductCode(cid) {
   if (m) {
     const prefix = m[1].toUpperCase();
     const num = parseInt(m[2], 10);
-    return prefix + '-' + num;
+    return prefix + '-' + String(num).padStart(3, '0');
   }
 
   // 去掉开头的纯数字内容类型前缀: 1xxxx, 13xxxx
@@ -300,7 +300,7 @@ function guessProductCode(cid) {
   if (m) {
     const prefix = m[1].toUpperCase();
     const num = parseInt(m[2], 10);
-    return prefix + '-' + num;
+    return prefix + '-' + String(num).padStart(3, '0');
   }
 
   // 最后兜底
