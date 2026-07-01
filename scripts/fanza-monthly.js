@@ -245,7 +245,26 @@ async function main() {
 
   // 从页面提取 CID
   let cids = [];
-  try {
+
+  // 优先使用 GraphQL 数据
+  if (graphqlData) {
+    var regex = /\{"id":"([^"]+)","rank":(\d+),/g;
+    var map = {};
+    var gRank;
+    var gCid;
+    while ((gCid = regex.exec(graphqlData)) !== null) {
+      var rankVal = parseInt(gCid[2]);
+      if (!map[rankVal]) map[rankVal] = gCid[1];
+    }
+    var gcids = Object.keys(map).sort(function(a,b){return a-b}).map(function(k){return map[k];});
+    if (gcids.length >= 30) {
+      cids = gcids;
+      console.log('  GraphQL 提取到', cids.length, '个 CID');
+    }
+  }
+
+  if (cids.length === 0) {
+    try {
     cids = await page.evaluate(() => {
     const ids = new Set();
     // DMM 排名页内容块
@@ -282,21 +301,20 @@ async function main() {
   } catch (e) {
     console.log("  CID 提取异常:", e && e.message ? e.message.substring(0,60) : e);
   }
-  // 优先使用 GraphQL 数据
+  }
+  // 3. 逐个访问详情页提取メーカー品番
   if (graphqlData) {
-    var regex = /\{"id":"([^"]+)","rank":(\d+),/g;
-    var map = {};
-    var m;
+    const regex = /\{"id":"([^"]+)","rank":(\d+),/g;
+    const map = new Map();
+    let m;
     while ((m = regex.exec(graphqlData)) !== null) {
-      var rank = parseInt(m[2]);
-      if (!map[rank]) map[rank] = m[1];
+      const rank = parseInt(m[2]);
+      if (!map.has(rank)) map.set(rank, m[1]);
     }
-    var graphqlCids = Object.keys(map).sort(function(a,b){return a-b}).map(function(k){return map[k];});
+    const graphqlCids = [...map.entries()].sort((a, b) => a[0] - b[0]).map(e => e[1]);
     if (graphqlCids.length >= 50) {
       cids = graphqlCids;
-      console.log('  GraphQL 提取到', cids.length, '个 CID');
-    } else {
-      console.log('  GraphQL 数据不足:', graphqlCids.length);
+      console.log(`  GraphQL 覆盖, 共 ${cids.length} 个 CID`);
     }
   }
 
