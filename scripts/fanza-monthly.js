@@ -149,19 +149,17 @@ async function main() {
     console.log('  无需年龄验证');
   }
 
-  // 滚动加载全部 100 条
+  // 从页面中提取 CID（多种方法兜底）
   console.log('2. 滚动加载数据...');
   for (let i = 0; i < 10; i++) {
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
     await page.waitForTimeout(1500);
   }
-
-  // 等待 GraphQL 响应
   await page.waitForTimeout(2000);
 
-  // 从 GraphQL 提取 CIDs
+  // 方法1: 从 GraphQL 响应提取
   const itemRegex = /\{"id":"([^"]+)","rank":(\d+),/g;
-  const cidRankMap = new Map();
+  let cidRankMap = new Map();
   let match;
   while ((match = itemRegex.exec(graphqlBody)) !== null) {
     const cid = match[1];
@@ -169,26 +167,34 @@ async function main() {
     if (!cidRankMap.has(rank)) cidRankMap.set(rank, cid);
   }
 
-  const cidEntries = [...cidRankMap.entries()].sort((a, b) => a[0] - b[0]);
-  console.log(`  提取到 ${cidEntries.length} 个 CID`);
+  console.log(`  GraphQL 提取到 ${cidRankMap.size} 个 CID`);
 
-  if (cidEntries.length === 0) {
-    console.log('  未提取到 CID，尝试从图片 URL 提取...');
-    const cids = await page.evaluate(() => {
+  // 方法2: 从页面链接提取（兜底）
+  if (cidRankMap.size === 0) {
+    console.log('  GraphQL 无数据，从页面链接提取...');
+    const links = await page.evaluate(() => {
       const ids = new Set();
-      document.querySelectorAll('img[src*="awsimgsrc.dmm.co.jp/pics_dig/digital/video/"]').forEach(img => {
-        const m = img.src.match(/\/video\/([a-z0-9]+)\/\1ps\.jpg/);
+      // 提取所有详情页链接中的 id 参数
+      document.querySelectorAll('a[href*="id="]').forEach(a => {
+        const m = a.href.match(/[?&]id=([a-z0-9_]+)/i);
+        if (m && m[1].length > 5) ids.add(m[1]);
+      });
+      // 也试图片 URL
+      document.querySelectorAll('img[src*="video/"][src*="ps.jpg"]').forEach(img => {
+        const m = img.src.match(/\/video\/([a-z0-9_]+)\/\1ps\.jpg/i);
         if (m) ids.add(m[1]);
       });
       return [...ids];
     });
-    cids.forEach((cid, idx) => cidRankMap.set(idx + 1, cid));
-    console.log(`  图片提取到 ${cids.length} 个 CID`);
+    links.forEach((cid, idx) => cidRankMap.set(idx + 1, cid));
+    console.log(`  页面提取到 ${links.length} 个 CID`);
   }
 
   // 逐个访问详情页提取番号
   console.log('3. 提取番号（メーカー品番）...');
   const results = [];
+  const cidEntries = [...cidRankMap.entries()].sort((a, b) => a[0] - b[0]);
+  console.log(`  共 ${cidEntries.length} 个条目`);
   for (const [rank, cid] of cidEntries) {
     let productCode = '';
     // 最多重试 2 次
